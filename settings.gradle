@@ -9,5 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "AppLaunchTest"
 include ':app'
 include ':macrobenchmark'
-include ':samplelib'
 include ':main'
