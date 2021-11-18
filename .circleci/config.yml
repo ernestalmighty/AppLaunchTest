@@ -98,15 +98,15 @@ jobs:
               --test macrobenchmark/build/outputs/apk/release/macrobenchmark-release.apk \
               --device model=flame,version=30,locale=en,orientation=portrait \
               --directories-to-pull /sdcard/Download \
-              --results-bucket gs://android-sample-benchmarks \
+              --results-bucket gs://link_android_bucket \
               --results-dir macrobenchmark \
               --environment-variables clearPackageData=true,additionalTestOutputDir=/sdcard/Download,no-isolated-storage=true
       - run:
           name: Download benchmark data
           command: |
             mkdir ~/benchmarks
-            gsutil cp -r 'gs://android-sample-benchmarks/macrobenchmark/**/artifacts/sdcard/Download/*'  ~/benchmarks
-            gsutil rm -r gs://android-sample-benchmarks/macrobenchmark
+            gsutil cp -r 'gs://link_android_bucket/macrobenchmark/**/artifacts/sdcard/Download/*'  ~/benchmarks
+            gsutil rm -r gs://link_android_bucket/macrobenchmark
       - store_artifacts:
             path: ~/benchmarks
       - run:
